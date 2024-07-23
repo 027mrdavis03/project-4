@@ -3,12 +3,12 @@ import pickle
 from PIL import Image
 import numpy as np
 
-with open('hotdog_notdog_cnn_regularized_augmented_4_layers.pkl', 'rb') as f:
+with open('hotdog_notdog_cnn_mobilenetv2', 'rb') as f:
     model = pickle.load(f)
 
 # Define a function to preprocess the input image
 def preprocess_image(image):
-    image = image.resize((299, 299))
+    image = image.resize((256, 256))
     image = np.array(image)
     image = image / 255.0  
     image = np.expand_dims(image, axis=0)  
